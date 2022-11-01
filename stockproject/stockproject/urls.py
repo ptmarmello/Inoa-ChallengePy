@@ -20,7 +20,7 @@ import requests
 
 urlpatterns = [
     # path('', views.ApiRequest.Start ),
-    path('', views.Test ),
+    path('', views.Test),
     path('admin/', admin.site.urls),
     path('emails/', include('mailsender.urls')),
     # path('stockapi/', views.ApiRequest.Test)

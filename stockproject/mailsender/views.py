@@ -2,7 +2,10 @@ import email
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.mail import send_mail
+from decouple import config
 
+DEFAULT_FOM_EMAIL = config('EMAIL_HOST_USER')
+EMAIL_SEND_TO = config('EMAIL_SEND_TO')
 
 def mailtester(emailtype="Venda", message="Sorry, but something went wrong. Please contact your administrator."):
     if emailtype == "Venda":
@@ -15,7 +18,7 @@ def mailtester(emailtype="Venda", message="Sorry, but something went wrong. Plea
         assunto = "Something went wrong, budy"
         
 
-    # send_mail(assunto, message ,'towho', ['towho1','towho2'])
+    send_mail(assunto, message , DEFAULT_FOM_EMAIL, [ 'ptmarmello', 'ptmarmello' ])
     # print(message)
     return HttpResponse('Oh Hello, Peter. ' + message)
 

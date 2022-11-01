@@ -126,14 +126,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email configuration settings
 
-DEFAULT_TOWHOM_EMAIL = 'client@gmail.com'
-DEFAULT_FROM_EMAIL = config('USER_EMAIL')
-EMAIL_HOST_PASSWORD = config('USER_PASSWORD')
-EMAIL_PORT = config('EMAIL_HOST_PORT')
+DEFAULT_FOM_EMAIL = 'stockBot@gmail.com'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST = config('EMAIL_HOST')
-USE_TLS = config('EMAIL_TLS')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_SEND_TO = config('EMAIL_SEND_TO')
 
-if DEBUG:
-    Email_backend = 'django.core.mail.backends.console.EmailBackend'
-else:
-    Email_backend = 'django.core.mail.backends.smtp.EmailBackend'
+# if DEBUG:
+# Email_backend = 'django.core.mail.backends.console.EmailBackend'
+# else:
+#     Email_backend = 'django.core.mail.backends.smtp.EmailBackend'
